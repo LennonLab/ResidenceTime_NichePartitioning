@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#SBATCH -J RTLC
+#SBATCH -p general
+#SBATCH -o RTLC_%j.txt
+#SBATCH -e RTLC_%j.err
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=emamuell@iu.edu
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --time=96:00:00
+#SBATCH --mem=50G
+#SBATCH -A r00324
+
+cd /N/project/Lennon_Sequences/RTLC
+
+module load mothur/1.48.1
+
+srun mothur /N/u/emamuell/Quartz/github/residence-time-test/mothur/RTLC.batch

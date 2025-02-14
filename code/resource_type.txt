@@ -1,0 +1,97 @@
+Resource	Type
+Water	water
+Pyruvic.Acid.Methyl.Ester	ester
+Tween.40	polymer
+Tween.80	polymer
+alpha-Cyclodextrin	polymer
+Glycogen	polymer
+D-Cellobiose	carbohydrate
+alpha-D-Lactose	carbohydrate
+beta-Methyl-D-Glucoside	carbohydrate
+D-Xylose	carbohydrate
+i-Erythritol	carbohydrate
+D-Mannitol	carbohydrate
+N-Acetyl-D-Glucosamine	carbohydrate
+D-Glucosaminic.Acid	carboxylic acid
+Glucose-1-Phosphate	phosphorylated
+"D,L-alpha-Glycerol.Phosphate"	phosphorylated
+D-Galactonic.Acid.gamma-Lactone	carboxylic acid
+D-Galacturonic.Acid	carboxylic acid
+2-Hydroxy.Benzoic.Acid	carboxylic acid
+4-Hydroxy.Benzoic.Acid	carboxylic acid
+gamma-Hydroxybutyric.Acid	carboxylic acid
+Itaconic.Acid	carboxylic acid
+alpha-Ketobutyric.Acid	carboxylic acid
+D-Malic.Acid	carboxylic acid
+L-Arginine	amino acid
+L-Asparagine	amino acid
+L-Phenylalanine	amino acid
+L-Serine	amino acid
+L-Threonine	amino acid
+Glycyl-L-Glutamic.Acid	amino acid
+Phenylethylamine	amine
+Putrescine	amine
+Water	water
+Pyruvic.Acid.Methyl.Ester	ester
+Tween.40	polymer
+Tween.80	polymer
+alpha-Cyclodextrin	polymer
+Glycogen	polymer
+D-Cellobiose	carbohydrate
+alpha-D-Lactose	carbohydrate
+beta-Methyl-D-Glucoside	carbohydrate
+D-Xylose	carbohydrate
+i-Erythritol	carbohydrate
+D-Mannitol	carbohydrate
+N-Acetyl-D-Glucosamine	carbohydrate
+D-Glucosaminic.Acid	carboxylic acid
+Glucose-1-Phosphate	phosphorylated
+"D,L-alpha-Glycerol.Phosphate"	phosphorylated
+D-Galactonic.Acid.gamma-Lactone	carboxylic acid
+D-Galacturonic.Acid	carboxylic acid
+2-Hydroxy.Benzoic.Acid	carboxylic acid
+4-Hydroxy.Benzoic.Acid	carboxylic acid
+gamma-Hydroxybutyric.Acid	carboxylic acid
+Itaconic.Acid	carboxylic acid
+alpha-Ketobutyric.Acid	carboxylic acid
+D-Malic.Acid	carboxylic acid
+L-Arginine	amino acid
+L-Asparagine	amino acid
+L-Phenylalanine	amino acid
+L-Serine	amino acid
+L-Threonine	amino acid
+Glycyl-L-Glutamic.Acid	amino acid
+Phenylethylamine	amine
+Putrescine	amine
+Water	water
+Pyruvic.Acid.Methyl.Ester	ester
+Tween.40	polymer
+Tween.80	polymer
+alpha-Cyclodextrin	polymer
+Glycogen	polymer
+D-Cellobiose	carbohydrate
+alpha-D-Lactose	carbohydrate
+beta-Methyl-D-Glucoside	carbohydrate
+D-Xylose	carbohydrate
+i-Erythritol	carbohydrate
+D-Mannitol	carbohydrate
+N-Acetyl-D-Glucosamine	carbohydrate
+D-Glucosaminic.Acid	carboxylic acid
+Glucose-1-Phosphate	phosphorylated
+"D,L-alpha-Glycerol.Phosphate"	phosphorylated
+D-Galactonic.Acid.gamma-Lactone	carboxylic acid
+D-Galacturonic.Acid	carboxylic acid
+2-Hydroxy.Benzoic.Acid	carboxylic acid
+4-Hydroxy.Benzoic.Acid	carboxylic acid
+gamma-Hydroxybutyric.Acid	carboxylic acid
+Itaconic.Acid	carboxylic acid
+alpha-Ketobutyric.Acid	carboxylic acid
+D-Malic.Acid	carboxylic acid
+L-Arginine	amino acid
+L-Asparagine	amino acid
+L-Phenylalanine	amino acid
+L-Serine	amino acid
+L-Threonine	amino acid
+Glycyl-L-Glutamic.Acid	amino acid
+Phenylethylamine	amine
+Putrescine	amine

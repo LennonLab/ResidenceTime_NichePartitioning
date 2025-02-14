@@ -1,0 +1,60 @@
+#! /bin/bash
+
+#creates 3-column file with sample name, fastq.gz R1, fastq.gz R2
+#make.file(inputdir=raw, type=gz, prefix=RTLC)
+
+#generates trimmed contigs and scraps for each sample. also generates the count, name, group files?
+#make.contigs(file=RTLC.files)
+#summary.seqs(fasta=RTLC.trim.contigs.fasta, count=RTLC.contigs.count_table)
+
+#removes contigs longer than 275 bp, with any ambiguous bases, and with more than 8 of one base in a row - https://forum.mothur.org/t/how-to-decide-maxlength/2423/2
+#screen.seqs(fasta=RTLC.trim.contigs.fasta, count=RTLC.contigs.count_table, maxambig=0, maxlength=275, maxhomop=8)
+
+#removes replicate contigs to decrease computing power necessary in future steps
+#unique.seqs(fasta=RTLC.trim.contigs.good.fasta, count=RTLC.contigs.good.count_table)
+#summary.seqs(count=RTLC.trim.contigs.good.count_table)
+
+#generate the silva database trimmed to the correct point (s=11894, e=25319) and removes non-unique sequences to conserve space
+#pcr.seqs(fasta=silva.nr_v138_1.align, start=11894, end=25319, keepdots=F)
+#unique.seqs(silva.nr_v138_1.pcr.align)
+#summary.seqs(fasta=silva.nr_v138_1.pcr.unique.align)
+
+#align contigs with reference silva.nr_v138 
+#align.seqs(fasta=RTLC.trim.contigs.good.unique.fasta, reference=silva.nr_v138_1.pcr.unique.align)
+#summary.seqs(fasta=RTLC.trim.contigs.good.unique.align, count=RTLC.trim.contigs.good.count_table)
+
+#check RTLC.trim.contigs.good.unique.summary to determine if correct start and end (should be where 35%-75% start and end)
+#screen.seqs(fasta=RTLC.trim.contigs.good.unique.align, count=RTLC.trim.contigs.good.count_table, summary=RTLC.trim.contigs.good.unique.summary, start=1969, end=11551, maxhomop=8)
+#summary.seqs(fasta=current, count=current)
+
+#Remove overhangs at both ends, remove redundancy, and pre-cluster the sequences
+#filter.seqs(fasta=RTLC.trim.contigs.good.unique.good.align, vertical=T, trump=.)
+#unique.seqs(fasta=RTLC.trim.contigs.good.unique.good.filter.fasta, count=RTLC.trim.contigs.good.good.count_table)
+#pre.cluster(fasta=RTLC.trim.contigs.good.unique.good.filter.unique.fasta, count=RTLC.trim.contigs.good.unique.good.filter.count_table, diffs=2)
+
+#remove chimeras (update from older version auto-removes chimeras instead of requiring an additional remove.seqs step)
+#chimera.vsearch(fasta=RTLC.trim.contigs.good.unique.good.filter.unique.precluster.fasta, count=RTLC.trim.contigs.good.unique.good.filter.unique.precluster.count_table, dereplicate=t)
+#summary.seqs(fasta=current, count=current)
+
+#classify sequences with a Bayesian classifer and remove Chloroplast-Mitochondria-unknown-Eukaryota
+#classify.seqs(fasta=RTLC.trim.contigs.good.unique.good.filter.unique.precluster.denovo.vsearch.fasta, count=RTLC.trim.contigs.good.unique.good.filter.unique.precluster.denovo.vsearch.count_table, reference=silva.nr_v138_1.align, taxonomy=silva.nr_v138_1.tax)
+#remove.lineage(fasta=RTLC.trim.contigs.good.unique.good.filter.unique.precluster.denovo.vsearch.fasta, count=RTLC.trim.contigs.good.unique.good.filter.unique.precluster.denovo.vsearch.count_table, taxonomy=RTLC.trim.contigs.good.unique.good.filter.unique.precluster.denovo.vsearch.nr_v138_1.wang.taxonomy, taxon=Chloroplast-Mitochondria-unknown-Eukaryota)
+#summary.tax(taxonomy=current, count=current)
+
+#rename the files and split into otus at 0.03 cutoff, make shared file, and classify the otus
+#rename.file(fasta=RTLC.trim.contigs.good.unique.good.filter.unique.precluster.denovo.vsearch.pick.fasta, count=RTLC.trim.contigs.good.unique.good.filter.unique.precluster.denovo.vsearch.pick.count_table, taxonomy=RTLC.trim.contigs.good.unique.good.filter.unique.precluster.denovo.vsearch.nr_v138_1.wang.pick.taxonomy, prefix=RTLC.final)
+#cluster.split(fasta=RTLC.final.fasta, count=RTLC.final.count_table, taxonomy=RTLC.final.taxonomy, taxlevel=4, cutoff=0.03)
+#make.shared(list=RTLC.final.opti_mcc.list, count=RTLC.final.count_table, label=0.03)
+#classify.otu(list=RTLC.final.opti_mcc.list, count=RTLC.final.count_table, taxonomy=RTLC.final.taxonomy, label=0.03)
+
+#get a representative sequence for each otu and generate fasta file from those sequences
+#get.oturep(list=RTLC.final.opti_mcc.list, fasta=RTLC.final.fasta, count=RTLC.final.count_table, method=abundance)
+
+#copy the files and rename them
+#system(cp ./RTLC.final.opti_mcc.shared ./RTLC.final.shared)
+#system(cp ./RTLC.final.opti_mcc.0.03.cons.taxonomy ./RTLC.final.taxonomy)
+#system(cp ./RTLC.final.opti_mcc.0.03.rep.fasta ./RTLC.final.rep.fasta)
+
+#filter.seqs(fasta = niche_oturep.fasta)
+dist.seqs(fasta = niche_oturep.fasta, output = lt)
+clearcut(phylip = niche_oturep.phylip.dist)
